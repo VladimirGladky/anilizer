@@ -12,8 +12,7 @@ module Anilizer
     txt_files = Dir.entries(path_to_dir).select { |f| File.file? File.join(path_to_dir, f) }
     txt_files.each do |file|
       File.open(path_to_dir + "\\" + file, "r").each_line do |line|
-        line = line.delete(".,-:;()!?1234567890\n")
-        strings = line.split(/ /)
+        strings = line.scan(/[[:alpha:]]+/)
         strings = strings.map{|y| y.downcase}
         strings.each do |word|
           if (!arr_ignored.include?(word) && !arr_of_ignored_words.include?(word))
