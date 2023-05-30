@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "anilizer/version"
+require_relative 'russian'
 
 module Anilizer
   class Error < StandardError; end
@@ -18,6 +19,10 @@ module Anilizer
           if (!arr_ignored.include?(word) && !arr_of_ignored_words.include?(word))
             words[word.downcase] += 1;
           end
+          if Russian::Noun.inflections(word.downcase).any?
+            lemma = Russian::Noun.inflections(word.downcase).first.inflected
+            word.replace(lemma)
+          end      
         end
       end
     end
