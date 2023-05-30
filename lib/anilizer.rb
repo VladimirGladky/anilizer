@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "anilizer/version"
-require "russian"
 require "lemmatizer"
 
 module Anilizer
