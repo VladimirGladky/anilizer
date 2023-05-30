@@ -25,5 +25,11 @@ module Anilizer
   end
 end
 
-hash = Anilizer.read_words_from_file_ignoring_some_words("C:\\TestsRuby", ["Раскудрявый", "поверьте"])
+puts "Enter the path to the folder that contains txt files"
+path = gets.chomp
+puts "Enter the words that you don't want to count (dividing by space)"
+restricts = gets.chomp
+arr_restricts = restricts.split(' ')
+puts "There are the results"
+hash = Anilizer.read_words_from_file_ignoring_some_words(path, arr_restricts)
 p hash
