@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "anilizer/version"
-require_relative 'russian'
+require "russian"
 
 module Anilizer
   class Error < StandardError; end
