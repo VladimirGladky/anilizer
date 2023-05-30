@@ -4,13 +4,6 @@ require_relative "anilizer/version"
 
 module Anilizer
   class Error < StandardError; end
-<<<<<<< Updated upstream
-  
-  def self.hello
-    'hello'
-  end
-end
-=======
 
   def self.lemmatize_file(file_path, arr_of_ignored_words)
     words = Hash.new(0)
@@ -41,4 +34,3 @@ hash = Anilizer::lemmatize_file(path, arr_restricts)
 hash.each do |word, count|
   puts "Слово: #{word}, Количество: #{count}"
 end
->>>>>>> Stashed changes
