@@ -2,6 +2,7 @@
 
 require_relative "anilizer/version"
 require "russian"
+require "lemmatizer"
 
 module Anilizer
   class Error < StandardError; end
@@ -9,6 +10,7 @@ module Anilizer
   def self.read_words_from_file_ignoring_some_words(path_to_dir, arr_of_ignored_words) #arr_of_file_names
     words = Hash.new(0)
     count = 0;
+    lemmatizer = Lemmatizer.new
     arr_ignored = arr_of_ignored_words.map{|x| x.downcase}
     txt_files = Dir.entries(path_to_dir).select { |f| File.file? File.join(path_to_dir, f) }
     txt_files.each do |file|
@@ -17,12 +19,10 @@ module Anilizer
         strings = strings.map{|y| y.downcase}
         strings.each do |word|
           if (!arr_ignored.include?(word) && !arr_of_ignored_words.include?(word))
+            lemma = lemmatizer.lemma(word)
+            word = lemma
             words[word.downcase] += 1;
           end
-          if Russian::Noun.inflections(word.downcase).any?
-            lemma = Russian::Noun.inflections(word.downcase).first.inflected
-            word.replace(lemma)
-          end      
         end
       end
     end
