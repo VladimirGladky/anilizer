@@ -21,5 +21,19 @@
      h = {"test" => 2, "clarify" => 1}
      assert_equal h, Anilizer::read_words_from_file_ignoring_some_words("tests3", [])
    end
+
+   def test_lemmatization2
+    h = {"cat"=>4,"dog" => 2}
+    assert_equal h, Anilizer::read_words_from_file_ignoring_some_words("tests4", [])
+   end
+
+   def test_lemmatization3
+    h = {"vasya" => 2, "go" => 2, "the" => 2, "school" => 2}
+    assert_equal h, Anilizer::read_words_from_file_ignoring_some_words("tests5", ["to"])
+   end
+   def test_lemmatization4
+    h = {}
+    assert_equal h, Anilizer::read_words_from_file_ignoring_some_words("tests6", ["legs"])
+   end
  
  end
