@@ -14,7 +14,10 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-Type FULL path to the FOLDER with .txt files in which you need to count words. Then type words, dividing by space, that you don't want to be count. Then program will show you the results
+Warning!!! before using Gem, install gem lemmatizer
+gem install lemmatizer
+
+Type FULL path to the FOLDER with .txt files in which you need to count words. Then type words, dividing by space, that you don't want to be count. Then program will show you the results.
 
 ## Development
 
